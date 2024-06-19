@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Consumo de Energía</title>
+</head>
+<body>
+
+<h1>Consumo de Energía</h1>
+
+<form action="https://formsubmit.co/casasustentable303@gmail.com" method="POST" >
+    <label for="name">Nombre:</label><br>
+    <input type="text" name="name"><br><br>
+    
+    <label for="email">Correo:</label><br>
+    <input type="email" name="email" required><br><br>
+    
+    <label for="tel">Número Telefónico:</label><br>
+    <input type="tel" name="tel"><br><br>
+    
+    <button type="submit">Enviar</button>
+</form>
+    <form>
+    <label for="consumo">Consumo de Energía por Bimestre (en kWh):</label><br>
+    <input type="number" id="consumo" name="consumo" ><br><br>
+    
+    <button type="button" onclick="calcularCosto()">Calcular Costo</button>
+</form>
+
+<div id="resultado"></div>
+<br>
+<label>Si no conoces tu consumo mensual de electricidad da click </label><a href="https://app.cfe.mx/Aplicaciones/CCFE/SolicitudesCFE/Solicitudes/ConsultaTuReciboLuzGmx" target="_blank">Aquí</a>
+
+<script>
+function calcularCosto() {
+    var consumo = document.getElementById("consumo").value;
+    if(consumo<=150){
+        var costoPorKwh = 1.015;
+    var costoTotal = consumo * costoPorKwh;
+    document.getElementById("resultado").innerHTML = "El costo total de energía por bimestre es: Básico de $" + costoTotal;
+    }
+    else if(consumo>=151 && consumo<=280){
+        var costoPorKwh = 1.239;
+    var costoTotal = consumo * costoPorKwh;
+    document.getElementById("resultado").innerHTML = "El costo total de energía por bimestre es: Intermedio de $" + costoTotal;
+    }
+    else if(consumo>=281){
+        var costoPorKwh = 3.620;
+    var costoTotal = consumo * costoPorKwh;
+    document.getElementById("resultado").innerHTML = "El costo total de energía por bimestre es: Excedente de $" + costoTotal;
+    }
+}
+</script>
+</body>
+</html>
